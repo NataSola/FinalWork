@@ -1,9 +1,9 @@
 ﻿// Второй варинат решения - длина второго массива подсчитывается во время создания первого и записывается как первый элемент массива
 
-int[] CreateSourceArray(int size, int min, int max)
+int[] CreateSourceArray(int size, int min, int max)  // генерация исходного массива
 {
-    int[] array = new int[size + 1];
-    array[0] = 0;
+    int[] array = new int[size + 1];    // заданная длина увеличивается на 1, т.к. первым элементом будет записано количетсво чётных значений
+    array[0] = 0;   // сюда будет записываться количество чётных элементов
     for (int i = 1; i < array.Length; i++)
     {
         array[i] = new Random().Next(min, max);
@@ -12,7 +12,7 @@ int[] CreateSourceArray(int size, int min, int max)
     return array;
 }
 
-void PrintArray(int[] array)
+void PrintArray(int[] array)    // печать массива без первого элемента
 {
     for (int i = 1; i < array.Length; i++)
     {
@@ -21,9 +21,9 @@ void PrintArray(int[] array)
     System.Console.WriteLine();
 }
 
-int[] GetEvenArray(int[] sourceArray)
+int[] GetEvenArray(int[] sourceArray)   // создание массива из четных элементов. 
 {
-    int[] newArray = new int[sourceArray[0] + 1];
+    int[] newArray = new int[sourceArray[0] + 1];   // добавляется первый элемент (любой), так как метод печати не выводит первый элемент
     int j = 1;
     newArray[0] = 0;
     for (int i = 1; i < sourceArray.Length; i++)
